@@ -122,13 +122,17 @@ def runGame():
 
         # Game Over conditions
         if snake_position[0] < 0 or snake_position[0] > WIDTH-10:
+            print(f"final score: {score}")
             return
+
         if snake_position[1] < 0 or snake_position[1] > HEIGHT-10:
+            print(f"final score: {score}")
             return
 
         # Touching the snake body
         for block in snake_body[1:]:
             if snake_position[0] == block[0] and snake_position[1] == block[1]:
+                print(f"final score: {score}")
                 return
 
         # displaying score countinuously
@@ -155,6 +159,7 @@ def gameOverScreen():
     overRect = overSurf.get_rect()
     gameRect.midtop = (WIDTH / 2, 10)
     overRect.midtop = (WIDTH / 2, gameRect.height + 10 + 25)
+    
 
     DISPLAY.blit(gameSurf, gameRect)
     DISPLAY.blit(overSurf, overRect)
